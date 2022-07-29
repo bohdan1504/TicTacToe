@@ -11,6 +11,7 @@ public class TicTacToe extends JFrame implements ActionListener {
     JPanel button_panel = new JPanel();
     JLabel textField = new JLabel();
     JButton[] buttons = new JButton[9];
+    int turn = 0;
 //    JButton playAgain = new JButton("Play again!");
     boolean player1_turn;
 
@@ -79,6 +80,15 @@ public class TicTacToe extends JFrame implements ActionListener {
     }
 
     public void check() {
+
+        if (turn==9){
+            playAgain();
+            for (int i=0; i<9; i++){
+                buttons[i].setEnabled(false);
+            }
+            buttons[4].setEnabled(true);
+            textField.setText("Draw!");
+        }
 
         if (
                 (buttons[0].getText()=="X") &&
@@ -269,6 +279,7 @@ public class TicTacToe extends JFrame implements ActionListener {
                         buttons[i].setForeground(new Color(255, 0, 0));
                         buttons[i].setText("X");
                         player1_turn = false;
+                        turn++;
                         textField.setText("O turn");
                         check();
                     }
@@ -277,6 +288,7 @@ public class TicTacToe extends JFrame implements ActionListener {
                         buttons[i].setForeground(new Color(0, 0, 255));
                         buttons[i].setText("O");
                         player1_turn = true;
+                        turn++;
                         textField.setText("X turn");
                         check();
                     }
