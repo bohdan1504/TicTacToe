@@ -12,7 +12,6 @@ public class TicTacToe extends JFrame implements ActionListener {
     JLabel textField = new JLabel();
     JButton[] buttons = new JButton[9];
     int turn = 0;
-//    JButton playAgain = new JButton("Play again!");
     boolean player1_turn;
 
     TicTacToe() {
@@ -23,6 +22,7 @@ public class TicTacToe extends JFrame implements ActionListener {
         this.getContentPane().setBackground(new Color(50, 50, 50));
         this.setLayout(new BorderLayout());
 
+        // setting the text on top of the page
         textField.setBackground(new Color(25, 25, 25));
         textField.setForeground(new Color(25, 255, 0));
         textField.setFont(new Font("Ink free", Font.BOLD, 75));
@@ -30,17 +30,17 @@ public class TicTacToe extends JFrame implements ActionListener {
         textField.setText("Tic-Tac-Toe");
         textField.setOpaque(true);
 
+        // adding title panel+text field to the North border
         title_panel.setLayout(new BorderLayout());
-//        title_panel.setSize(new Dimension(800,100));
         title_panel.setBounds(0, 0, 800, 100);
         title_panel.add(textField);
-//        title_panel.add(playAgain);
 
-
+        // button panel
         button_panel.setLayout(new GridLayout(3, 3));
         button_panel.setBackground(Color.red);
         button_panel.setSize(800, 700);
 
+        // creating buttons
         for (int i = 0; i < 9; i++) {
             buttons[i] = new JButton();
             button_panel.add(buttons[i]);
@@ -49,10 +49,6 @@ public class TicTacToe extends JFrame implements ActionListener {
             buttons[i].setOpaque(true);
             buttons[i].addActionListener(this);
         }
-
-//        playAgain.setVisible(true);
-//        playAgain.setSize(200,50);
-//        playAgain.setFont(new Font("MV Boli", Font.BOLD, 50));
 
         this.add(title_panel, BorderLayout.NORTH);
         this.add(button_panel);
@@ -252,20 +248,12 @@ public class TicTacToe extends JFrame implements ActionListener {
         buttons[4].setEnabled(true);
         buttons[4].setFont(new Font(buttons[4].getFont().getFamily(),
                 buttons[4].getFont().getStyle(), 40));
-//        buttons[4].setBackground(Color.white);
         buttons[4].addActionListener(e -> newGame());
     }
 
     public void newGame(){
         this.dispose();
         new TicTacToe();
-//        for (int i=0; i<9; i++){
-//            buttons[i].setEnabled(true);
-//            buttons[i].setText("");
-//            buttons[i].setBackground(Color.white);
-//            buttons[4].removeActionListener(this);
-//            firstTurn();
-//        }
     }
 
 
